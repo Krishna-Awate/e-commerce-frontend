@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 // Material UI imports
-import { Paper, Grid } from "@mui/material";
+import { Paper } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
-const Swal = require("sweetalert2");
+import Swal from "sweetalert2";
 
 import { resendVerificationEmail } from "/services/user";
 

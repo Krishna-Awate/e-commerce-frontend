@@ -1,19 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 // import PhoneInput from "react-phone-number-input";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 // Material UI imports
 import { Paper, Button, CircularProgress } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-import { makeStyles } from "@mui/styles";
-const Swal = require("sweetalert2");
-
-// import ButtonWithLoader from "/components/Button/ButtonWithLoader";
 import VerificationEmail from "/components/VerificationEmail/VerificationEmail";
 import { userSignUp } from "/services/user";
 
@@ -21,21 +16,10 @@ import { userSignUp } from "/services/user";
 import AnimateButton from "/components/@extended/AnimateButton";
 import CustomInput from "/components/Input/CustomInput";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    height: "40px",
-    borderRadius: "8px",
-  },
-}));
-
 const SignUp = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [isButtonLoading, setIsButtonLoading] = useState(false);
   const [user, setUser] = useState();
   const [isMounted, setIsMounted] = useState(false);
-
-  const classes = useStyles();
-  const router = useRouter();
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -80,7 +64,7 @@ const SignUp = () => {
             re_password: "",
           }}
           validationSchema={SignupSchema}
-          onSubmit={async (values, actions) => {
+          onSubmit={async (values) => {
             setIsButtonLoading(true);
             const newUserData = await userSignUp({
               ...values,

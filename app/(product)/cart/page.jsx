@@ -75,7 +75,7 @@ const Cart = () => {
   );
 
   const checkoutRouteHandler = async () => {
-    const updateCart = await addToCart(cartItems);
+    await addToCart(cartItems);
     router.push("/checkout");
   };
 

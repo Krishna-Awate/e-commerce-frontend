@@ -13,7 +13,6 @@ import Loading from "/components/Loading";
 
 //Services
 import { getProducts, addToCart } from "/services/product";
-import Swal from "sweetalert2";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);

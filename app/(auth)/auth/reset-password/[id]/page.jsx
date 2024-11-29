@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-const Swal = require("sweetalert2");
+import Swal from "sweetalert2";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -11,28 +11,14 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import { Paper, Button, CircularProgress } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-// import { Input } from "@mui/joy";
-import { makeStyles } from "@mui/styles";
-
 import { resetPassword } from "/services/user";
-// import ButtonWithLoader from "/components/Button/ButtonWithLoader";
 import AnimateButton from "/components/@extended/AnimateButton";
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    height: "40px",
-    borderRadius: "15px",
-    // backgroundColor: "green",
-    // color: "white",
-  },
-}));
 
 const ResetPassword = () => {
   const [isButtonLoading, setisButtonLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
-  const classes = useStyles();
   const { id } = useParams();
 
   useEffect(() => {

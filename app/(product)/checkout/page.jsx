@@ -110,7 +110,8 @@ const CheckoutPage = () => {
           address: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={async (values, actions) => {
+        onSubmit={async (values) => {
+          setIsButtonLoading(true);
           if (amount > 500000) {
             setError(
               "Amount for test mode should not be greater than INR 5,00,000"

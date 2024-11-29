@@ -1,8 +1,8 @@
-import { useField, FormikProps } from "formik";
+import { useField } from "formik";
 import OutlinedInput from "@mui/material/OutlinedInput";
 
 const CustomInput = ({ label, ...props }) => {
-  const [field, meta, helpers] = useField(props);
+  const [field, meta] = useField(props);
   return (
     <>
       <label className="block uppercase text-gray-500 text-xs font-bold mb-2">

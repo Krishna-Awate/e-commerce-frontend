@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-const Swal = require("sweetalert2");
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -19,7 +18,6 @@ import {
   Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { makeStyles } from "@mui/styles";
 
 // Services
 import { userSignIn } from "/services/user";
@@ -28,19 +26,11 @@ import VerificationEmail from "/components/VerificationEmail/VerificationEmail";
 // Extension
 import AnimateButton from "/components/@extended/AnimateButton";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    height: "40px",
-    borderRadius: "8px",
-  },
-}));
-
 const Login = () => {
   const [isButtonLoading, setisButtonLoading] = useState(false);
   const [user, setUser] = useState("");
   const [isMounted, setIsMounted] = useState(false);
 
-  const classes = useStyles();
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -76,7 +66,7 @@ const Login = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={SignupSchema}
-          onSubmit={async (values, actions) => {
+          onSubmit={async (values) => {
             setisButtonLoading(true);
             const user = await userSignIn(values);
             if (user?.status === "success") {

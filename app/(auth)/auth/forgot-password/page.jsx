@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-const Swal = require("sweetalert2");
+import Swal from "sweetalert2";
 import Link from "next/link";
 import OutlinedInput from "@mui/material/OutlinedInput";
 
@@ -11,26 +11,14 @@ import { Paper, Button, CircularProgress } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 // import { Input } from "@mui/joy";
-import { makeStyles } from "@mui/styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // import ButtonWithLoader from "/components/Button/ButtonWithLoader";
 import { forgotPassword } from "/services/user";
 import AnimateButton from "/components/@extended/AnimateButton";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    height: "40px",
-    borderRadius: "15px",
-    backgroundColor: "green",
-    // color: "white",
-  },
-}));
-
 const ForgotPassword = () => {
   const [isButtonLoading, setisButtonLoading] = useState(false);
-
-  const classes = useStyles();
 
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Enter valid email").required("Enter your email"),
