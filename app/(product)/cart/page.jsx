@@ -12,6 +12,7 @@ import {
   Button,
   Typography,
   Box,
+  CircularProgress,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 
@@ -26,6 +27,7 @@ const Cart = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const router = useRouter();
 
@@ -75,8 +77,10 @@ const Cart = () => {
   );
 
   const checkoutRouteHandler = async () => {
+    setIsButtonLoading(true);
     await addToCart(cartItems);
     router.push("/checkout");
+    setIsButtonLoading(false);
   };
 
   const productRouteHandler = () => {
@@ -155,12 +159,20 @@ const Cart = () => {
               variant="contained"
               color="primary"
               sx={{ marginRight: 2 }}
+              className="py-4 px-6"
               onClick={checkoutRouteHandler}
+              disabled={isButtonLoading}
+              startIcon={
+                isButtonLoading ? (
+                  <CircularProgress size={24} sx={{ color: "white" }} />
+                ) : null
+              }
             >
               Checkout
             </Button>
             <Button
               variant="outlined"
+              className="p-4"
               color="secondary"
               onClick={productRouteHandler}
             >
