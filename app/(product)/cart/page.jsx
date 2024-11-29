@@ -159,7 +159,7 @@ const Cart = () => {
               variant="contained"
               color="primary"
               sx={{ marginRight: 2 }}
-              className="py-4 px-6"
+              className="py-4 px-4"
               onClick={checkoutRouteHandler}
               disabled={isButtonLoading}
               startIcon={
@@ -172,11 +172,11 @@ const Cart = () => {
             </Button>
             <Button
               variant="outlined"
-              className="p-4"
+              className="py-4"
               color="secondary"
               onClick={productRouteHandler}
             >
-              Continue Shopping
+              <div className="text-md">Add Products</div>
             </Button>
           </Box>
         </div>
