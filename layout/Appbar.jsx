@@ -77,7 +77,7 @@ function ResponsiveAppBar({ children }) {
   return (
     <>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{
           backgroundColor: "#009270",
         }}
@@ -202,7 +202,7 @@ function ResponsiveAppBar({ children }) {
           </Toolbar>
         </Container>
       </AppBar>
-      <div className="mt-2">{children}</div>
+      <div className="mt-20">{children}</div>
     </>
   );
 }
