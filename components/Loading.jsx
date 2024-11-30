@@ -17,8 +17,7 @@ const Loading = () => {
       }}
     >
       <div>
-        <CircularProgress color="primary" size={60} />
-        <div className="mr-4 mt-4 text-lg">Loading...</div>
+        <CircularProgress color="primary" size={40} />
       </div>
     </Box>
   );

@@ -120,6 +120,7 @@ const CheckoutPage = () => {
           values.amount = amount;
           values.cart = cart;
           await displayRazorpay(values, paymentSuccessHandler, loadingHanlder);
+          setIsButtonLoading(false);
         }}
       >
         <div className="full flex items-center justify-center p-4">
